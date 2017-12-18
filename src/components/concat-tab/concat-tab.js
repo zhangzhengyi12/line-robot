@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Scrollbars } from 'react-custom-scrollbars'
 import ConcatItem from 'base/concat-item/concat-item'
+import './concat-tab.css'
 
 
 
@@ -28,8 +29,8 @@ class ConcatTab extends React.Component{
     const height = this.state.height - this.props.topHeight
     const tabData = this.props.tabData
     
-    const concats = tabData.map(item => 
-      <li><ConcatItem name={item.name} avatar={item.avatar} key={item.id.toString()}  /></li>
+    const concats = tabData.map((item,index) => 
+      <li><ConcatItem name={item.name} avatar={item.avatar} key={index}  /></li>
     )
     return <div className="concat-tab" ref={el => { this.concatTab = el }}>
       <Scrollbars style={{ width, height }}  autoHide autoHeightMin={100}>

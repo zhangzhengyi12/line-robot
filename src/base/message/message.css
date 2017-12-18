@@ -1,0 +1,24 @@
+.message.left {
+  padding-left: 115px;
+  text-align: left;
+}
+
+.message.left .sender-box {
+  position: absolute;
+  left: 5px;
+}
+
+.message.right {
+  padding-right: 50px;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.message.right .sender-box {
+  position: absolute;
+  right: 5px;
+}
+
+.message {
+  margin: 10px;
+}
