@@ -5,39 +5,23 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import ConcatItem from 'base/concat-item/concat-item'
 import './concat-tab.css'
 
+function ConcatTab(props) {
+  const width = 200
+  const height = props.height - props.topHeight
+  const tabData = props.tabData
 
-
-class ConcatTab extends React.Component{
-  constructor() {
-    super()
-    this.state = {
-      height: window.innerHeight
-    }
-  }
-  componentDidMount() {
-    window.onresize = () => {
-      this.refreshConcatHeight()
-    }
-  }
-  refreshConcatHeight() {
-    this.setState({
-      height:window.innerHeight
-    })
-  }
-  render() {
-    const width = 200
-    const height = this.state.height - this.props.topHeight
-    const tabData = this.props.tabData
-    
-    const concats = tabData.map((item,index) => 
-      <li><ConcatItem name={item.name} avatar={item.avatar} key={index}  /></li>
-    )
-    return <div className="concat-tab" ref={el => { this.concatTab = el }}>
-      <Scrollbars style={{ width, height }}  autoHide autoHeightMin={100}>
+  const concats = tabData.map((item, index) => (
+    <li className="concat-item" key={index}>
+      <ConcatItem name={item.name} avatar={item.avatar} />
+    </li>
+  ))
+  return (
+    <div className="concat-tab">
+      <Scrollbars style={{ width, height }} autoHide autoHeightMin={100}>
         {concats}
       </Scrollbars>
     </div>
-   }
+  )
 }
 
 export default ConcatTab

@@ -1,24 +1,27 @@
 .message.left {
-  padding-left: 115px;
   text-align: left;
 }
 
 .message.left .sender-box {
-  position: absolute;
   left: 5px;
+  margin: 0 20px 0 10px;
 }
 
 .message.right {
-  padding-right: 50px;
+  flex-direction: row-reverse;
   align-self: flex-end;
-  text-align: right;
+  display: flex;
 }
 
 .message.right .sender-box {
-  position: absolute;
-  right: 5px;
+ margin: 0 10px 0 10px;
+}
+
+.message.left .text {
+  background-color: rgb(238, 238, 238)
 }
 
 .message {
   margin: 10px;
+  display: flex;
 }

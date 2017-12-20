@@ -7,7 +7,7 @@ import './chat.css'
 class Chat extends React.Component {
   render() {
     const data = this.props.chatContent
-    const messages = data.chatHistory.map((mess,index) => {
+    const messages = data.history.map((mess,index) => {
       let avatar
       let title
       let pos

@@ -4,4 +4,8 @@
   left: 200px;
   bottom: 0;
   right: 0;
+  background-color: #fff;
+}
+.chat-wrapper{
+  border-bottom: 1px solid #ccc;
 }

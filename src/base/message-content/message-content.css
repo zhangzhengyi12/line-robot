@@ -1,6 +1,5 @@
 .message-content {
   display: inline-block;
-  background-color: rgb(38, 131, 245);
   border-radius: 6px;
   padding: 8px;
   color: #fff;
@@ -17,17 +16,28 @@
   border-style: solid;
 }
 
-.arrow.right{
-  right: -24px;
-  border-color: transparent transparent transparent rgb(38, 131, 245)
-}
-
-.arrow.left{
- left: -24px;
- border-color: transparent rgb(38, 131, 245) transparent transparent
-}
-
 .message-content img{
   max-width: 300px;
   max-height: auto;
 }
+
+.message-content.left {
+  background-color: rgb(238, 238, 238);
+  color: #333;
+}
+
+.message-content.right {
+ background-color: rgb(38, 131, 245);
+ color: #fff;
+}
+
+.message-content.right .arrow{
+  right: -24px;
+  border-color: transparent transparent transparent rgb(38, 131, 245)
+}
+
+.message-content.left .arrow{
+ left: -24px;
+ border-color: transparent rgb(238, 238, 238) transparent transparent
+}
+

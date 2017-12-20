@@ -1,0 +1,23 @@
+textarea {
+  overflow: auto;
+  outline: none;
+  padding: 3px;
+  border: none;
+  color: #555;
+  font-size: 16px;
+}
+
+button {
+  background-color: rgb(1, 136, 251);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  float: right;
+  margin-right: 20px;
+}
+
+button:hover {
+  background-color: rgb(7, 91, 194);
+}
+
