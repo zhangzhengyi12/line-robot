@@ -11,6 +11,7 @@ class Chat extends React.Component {
       let avatar
       let title
       let pos
+      let isPlace
 
       if (mess.type === 'My') {
         avatar = data.meAvatar
@@ -21,8 +22,10 @@ class Chat extends React.Component {
         title = data.title
         pos = 'left'
       }
-
-      return <Message {...mess} title={title} avatar={avatar} pos={pos} key={index}/>
+      if (mess.isPlace) {
+        isPlace = mess.isPlace
+      }
+      return <Message {...mess} title={title} avatar={avatar} pos={pos} key={index} loading={isPlace}/>
     })
     return <div className="chat">{messages}</div>
   }

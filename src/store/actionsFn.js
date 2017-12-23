@@ -7,8 +7,8 @@ import * as types from './actionTypes.js'
 export function setWindows(width, height) {
   return {
     type: types.SET_WINDOW_HEIGHT_WIDTH,
-    width: width,
-    height: height
+    width,
+    height
   }
 }
 
@@ -16,6 +16,13 @@ export function addHistory(id, message) {
   return {
     type: types.SET_HISTORY,
     message: message,
-    id: id
+    id
+  }
+}
+
+export function clearHistory(id) {
+  return {
+    type: types.CLEAR_HISTORY,
+    id,
   }
 }

@@ -4,6 +4,8 @@
   padding: 8px;
   color: #fff;
   position: relative;
+  transition: all 1s linear;
+  word-break: break-all;
 }
 
 .arrow {
@@ -16,7 +18,7 @@
   border-style: solid;
 }
 
-.message-content img{
+.message-content img.image{
   max-width: 300px;
   max-height: auto;
 }

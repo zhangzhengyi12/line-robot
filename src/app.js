@@ -6,19 +6,24 @@ import { connect } from 'react-redux'
 import Header from 'base/header/header.js'
 import ChatBox from 'components/chat-box/chat-box.js'
 import './app.css'
-import { setWindows, addHistory } from './store/actionsFn.js'
+import { setWindows, addHistory, clearHistory } from './store/actionsFn.js'
 import { throttle } from 'common/js/util.js'
 import { getRobotRes } from './api/getRobotRes.js'
 import createMessage from 'common/js/message.js'
 import creatMessageObject from './common/js/message'
+import Propmt from 'base/prompt/prompt.js'
+import { loadavg } from 'os'
 
-// TODO: 发言自动跳转到末端
+// TODO: 询问用户名 验证 > 设置图灵机器人API 提供图片展示。
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      concatId: 0
+      concatId: 0,
+      userID: '',
+      show: true,
+      userName: ''
     }
   }
   componentDidMount() {
@@ -27,34 +32,89 @@ class App extends React.Component {
       const height = window.innerHeight
       this.props.dispatch(setWindows(width, height))
     }, 50)
+
+    // 检测是否存在本地userName
+    if (localStorage.userName !== undefined) {
+      this.setState({
+        show: false,
+        userName: localStorage.userName
+      })
+    }
   }
   sendMessage(query) {
     // 本地添加数据并远程请求
-    // may be loading
     const concatId = this.state.concatId
     const diffKey = Math.random()
     const localMessage = creatMessageObject({ type: 'My', text: query })
-    const placeHolderMessage = creatMessageObject({ type: 'Too', text: 'wait....', diffKey })
+    const placeHolderMessage = creatMessageObject({ type: 'Too', text: 'wait....', diffKey, isPlace: true })
     // local
     this.props.dispatch(addHistory(concatId, localMessage))
     // placeHolder Response
     this.props.dispatch(addHistory(concatId, placeHolderMessage))
-    // Loading动画，通过对diff一个随机数的比较做到，如果一致就替代，findinxOf 先去Push一个空的回复
-    getRobotRes(concatId, query).then(res => {
+    this.timeOutRefreshChatBox()
+    // Loading动画
+    getRobotRes(concatId, query, this.state.userName).then(res => {
       res = Object.assign(res, {
         diffKey
       })
       this.props.dispatch(addHistory(concatId, res))
+      this.timeOutRefreshChatBox()
     })
+  }
+  setUserName(name) {
+    // username应该通过本地保存。
+    this.setState({
+      userName: name,
+      show: false
+    })
+    localStorage.userName = name
+  }
+  clearHistory(id) {
+    if (window.confirm('确定要删除历史消息吗')) {
+    this.props.dispatch(clearHistory(id))
+    }
+  }
+  timeOutRefreshChatBox() {
+    setTimeout(() => {
+      this.chatBox.scrollToBottom()
+    }, 10)
   }
   render() {
     const { dispatch, width, height, chatHistory, chatRobotList } = this.props
     const currentChat = chatHistory[this.state.concatId]
+
     return (
       <div>
-        <Header title={'微软小冰机器人'} />
-        <ConcatTab tabData={chatRobotList} topHeight={50} className="concat-tab" height={height} />
-        <ChatBox chatContent={currentChat} height={height} width={width} sendHandle={query => this.sendMessage(query)} />
+        <Header title={currentChat.title} childTitle={this.state.userName} />
+        <ConcatTab
+          tabData={chatRobotList}
+          topHeight={50}
+          className="concat-tab"
+          height={height}
+          handleClick={id =>
+            this.setState({
+              concatId: id
+            })
+          }
+          activeIndex={this.state.concatId}
+          handleClickClear={(id)=>{this.clearHistory(id)}}
+        />
+        <ChatBox
+          chatContent={currentChat}
+          height={height}
+          width={width}
+          sendHandle={query => this.sendMessage(query)}
+          ref={e => {
+            this.chatBox = e
+          }}
+        />
+        <Propmt
+          show={this.state.show}
+          title="欢迎，请输入你的用户名"
+          btn="确认"
+          tips="支持0-9，a-z,A-Z组合，不能包含特殊字符"
+          handleClick={name => this.setUserName(name)}
+        />
       </div>
     )
   }

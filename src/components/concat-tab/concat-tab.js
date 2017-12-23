@@ -11,8 +11,8 @@ function ConcatTab(props) {
   const tabData = props.tabData
 
   const concats = tabData.map((item, index) => (
-    <li className="concat-item" key={index}>
-      <ConcatItem name={item.name} avatar={item.avatar} />
+    <li className="concat-item" key={index} onClick={e=>{props.handleClick(index)}}>
+      <ConcatItem name={item.name} avatar={item.avatar} handleClickClear={props.handleClickClear}   index = {index}   activeClass={props.activeIndex === index ? 'active' : ''} />
     </li>
   ))
   return (

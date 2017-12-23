@@ -1,0 +1,40 @@
+.prompt {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgb(19, 142, 238);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.prompt-wrapper{
+  color: #fff;
+}
+
+.prompt-wrapper .input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  border-bottom: 1px solid #fff;
+}
+
+.prompt-wrapper .error {
+  border-bottom: 1px solid red;
+}
+.prompt-wrapper .btn {
+  font-size: 24px;
+  padding: 0 5px 0 5px;
+  background-color: #fff;
+  color: rgb(19, 142, 238);
+  cursor: pointer;
+}
+
+.prompt-wrapper .tips {
+  font-size: 12px;
+}
