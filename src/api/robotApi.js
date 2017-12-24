@@ -67,7 +67,6 @@ export function getTuring(query, userId) {
             return { title: item.name, link: item.detailurl, icon: item.icon }
           })
           message = createTooMessage({ text, linkList })
-          console.log(linkList)
         }
         resolve(message)
       })
@@ -103,7 +102,6 @@ export function getSimsimi(query) {
       .send({ txt: query })
       .type('form')
       .then(res => {
-        console.log(res)
         if (res.body.code === 100000) {
           const message = createTooMessage({ text: res.body.text })
           resolve(message)
