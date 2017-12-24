@@ -15,10 +15,16 @@ const initialState = {
       name: '图灵机器人',
       avatar: 'http://ot7z7wqqo.bkt.clouddn.com/icon40.png',
       id: 1
-    }, {
-      name: 'itPark',
-      avatar: 'http://ot7z7wqqo.bkt.clouddn.com/icon40.png',
-      id:2
+    },
+    {
+      name: '茉莉',
+      avatar: 'http://ot7z7wqqo.bkt.clouddn.com/TIM%E5%9B%BE%E7%89%8720171224225712.png',
+      id: 2
+    },
+    {
+      name: '小黄鸡',
+      avatar: 'http://ot7z7wqqo.bkt.clouddn.com/ji.jpg',
+      id: 3
     }
   ],
   chatHistory: [
@@ -35,12 +41,20 @@ const initialState = {
       avatar: 'http://ot7z7wqqo.bkt.clouddn.com/icon40.png',
       meAvatar: 'http://ot7z7wqqo.bkt.clouddn.com/TIM%E5%9B%BE%E7%89%8720171202164404.jpg',
       history: getHistory(1)
-    }, {
+    },
+    {
       id: 2,
-      title: 'itpk',
-      avatar: 'http://ot7z7wqqo.bkt.clouddn.com/icon40.png',
+      title: '茉莉',
+      avatar: 'http://ot7z7wqqo.bkt.clouddn.com/TIM%E5%9B%BE%E7%89%8720171224225712.png',
       meAvatar: 'http://ot7z7wqqo.bkt.clouddn.com/TIM%E5%9B%BE%E7%89%8720171202164404.jpg',
       history: getHistory(2)
+    },
+    {
+      id: 3,
+      title: '小黄鸡',
+      avatar: 'http://ot7z7wqqo.bkt.clouddn.com/ji.jpg',
+      meAvatar: 'http://ot7z7wqqo.bkt.clouddn.com/TIM%E5%9B%BE%E7%89%8720171202164404.jpg',
+      history: getHistory(3)
     }
   ]
 }

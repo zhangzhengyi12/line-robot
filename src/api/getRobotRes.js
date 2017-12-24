@@ -7,7 +7,9 @@ export function getRobotRes(robotId, query, userId) {
     case 1: 
       return robots.getTuring(query, userId)
     case 2:
-      return robots.getITPK(query)  
+      return robots.getITPK(query)
+    case 3: 
+      return robots.getSimsimi(query)  
     default:
       return Promise.reject('cant find robot')
   }

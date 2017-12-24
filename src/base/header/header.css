@@ -9,5 +9,12 @@
 
 .child-title{
   position: absolute;
-  right: 20px;
+  right: 40px;
+}
+
+.login-out{
+  position: absolute;
+  right: 10px;
+  line-height: 55px;
+  cursor: pointer;
 }

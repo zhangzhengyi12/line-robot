@@ -74,6 +74,11 @@ class App extends React.Component {
     this.props.dispatch(clearHistory(id))
     }
   }
+  loginOut() {
+    if (window.confirm('确定要登出吗')) {
+      localStorage.clear()
+    }
+  }
   timeOutRefreshChatBox() {
     setTimeout(() => {
       this.chatBox.scrollToBottom()
@@ -85,7 +90,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header title={currentChat.title} childTitle={this.state.userName} />
+        <Header title={currentChat.title} childTitle={this.state.userName} handleClickOut={()=>{this.loginOut()}} />
         <ConcatTab
           tabData={chatRobotList}
           topHeight={50}
