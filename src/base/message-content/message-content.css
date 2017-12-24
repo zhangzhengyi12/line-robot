@@ -1,0 +1,45 @@
+.message-content {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 8px;
+  color: #fff;
+  position: relative;
+  transition: all 1s linear;
+  word-break: break-all;
+}
+
+.arrow {
+  display: inline-block;
+  position: absolute;
+  top:8px;
+  width: 0;
+  height: 0;
+  border-width: 6px 12px 6px 12px;
+  border-style: solid;
+}
+
+.message-content img.image{
+  max-width: 300px;
+  max-height: auto;
+}
+
+.message-content.left {
+  background-color: rgb(238, 238, 238);
+  color: #333;
+}
+
+.message-content.right {
+ background-color: rgb(38, 131, 245);
+ color: #fff;
+}
+
+.message-content.right .arrow{
+  right: -24px;
+  border-color: transparent transparent transparent rgb(38, 131, 245)
+}
+
+.message-content.left .arrow{
+ left: -24px;
+ border-color: transparent rgb(238, 238, 238) transparent transparent
+}
+

@@ -1,0 +1,20 @@
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  line-height: 50px;
+  background-color: rgb(21, 147, 237);
+  color: #fff;
+}
+
+.child-title{
+  position: absolute;
+  right: 40px;
+}
+
+.login-out{
+  position: absolute;
+  right: 10px;
+  line-height: 55px;
+  cursor: pointer;
+}
