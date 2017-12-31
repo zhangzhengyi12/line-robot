@@ -93,6 +93,7 @@ export function getITPK(query) {
   })
 }
 
+
 export function getSimsimi(query) {
   const url = 'http://www.niurenqushi.com/api/simsimi/'
 
