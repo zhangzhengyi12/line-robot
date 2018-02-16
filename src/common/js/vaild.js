@@ -1,11 +1,8 @@
-
-
-
 export default function vaildity() {
   let cache = []
   let args = []
   return {
-    add: function (fn,...arg) {
+    add: function(fn, ...arg) {
       cache.push(fn)
       args.push(arg)
     },
@@ -20,5 +17,25 @@ export default function vaildity() {
       })
       return res
     }
+  }
+}
+
+function* fibGenator() {
+  let [prev, next] = [0, 1]
+  for (;;) {
+    ;[prev, next] = [next, prev + next]
+    yield next
+  }
+}
+
+function* zhuangtaiji() {
+  let open = 'OPEN'
+  let close = 'CLOSE'
+  let middle = 'MIDDLE'
+
+  while (true) {
+    yield open
+    yield close
+    yield middle
   }
 }

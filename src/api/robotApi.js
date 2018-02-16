@@ -18,7 +18,7 @@ function createTooMessage(obj = {}) {
 }
 
 export function getQinyunke(query) {
-  const URL = 'http://api.laoliuscript.tk/api/qinyunke'
+  const URL = 'https://api.yinode.tech/robot/qinyunke'
   const KEY = 'free'
   const APPID = 0
   return new Promise((resolve, reject) => {
@@ -76,7 +76,7 @@ export function getTuring(query, userId) {
 export function getITPK(query) {
   const api_key = 'cf4430bfe3353c43f93534d55b26160b'
   const api_sercret = 'm46itsgtu2sg'
-  const url = 'http://api.laoliuscript.tk/api/itpk'
+  const url = 'https://api.yinode.tech/robot/itpk'
 
   return new Promise((resolve, reject) => {
     request
